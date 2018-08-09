@@ -87,6 +87,7 @@ public class MainMenuActivity extends CollectAbstractActivity {
     private Button viewSentFormsButton;
     private Button reviewDataButton;
     private Button getFormsButton;
+    private Button getupdated_forms;
     private View reviewSpacer;
     private View getFormsSpacer;
     private AlertDialog alertDialog;
@@ -113,6 +114,23 @@ public class MainMenuActivity extends CollectAbstractActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu);
         initToolbar();
+
+        //update forms with new media files button. no result expected.
+        getupdated_forms = findViewById(R.id.getupdated_forms);
+        getupdated_forms.setText(getString(R.string.getupdated_forms));
+        getupdated_forms.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Collect.allowClick()) {
+                    Collect.getInstance().getActivityLogger()
+                            .logAction(this, "downloadBlankForms", "click");
+                    Intent i = new Intent(getApplicationContext(),
+                            FormMediaUpdatedList.class);
+                    startActivity(i);
+                }
+            }
+        });
+
 
         // enter data button. expects a result.
         Button enterDataButton = findViewById(R.id.enter_data);

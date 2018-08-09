@@ -162,6 +162,7 @@ the specific language governing permissions and limitations under the License.
             </intent-filter>
         </activity>
         <activity android:name=".activities.FormDownloadList" />
+        <activity android:name=".activities.FormMediaUpdatedList" />
         <activity
             android:name=".activities.FileManagerTabs"
             android:configChanges="orientation|screenSize" />
